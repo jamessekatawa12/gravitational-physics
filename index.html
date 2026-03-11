@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solar System Digital Twin</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="hud">
+      <h1>Solar System Digital Twin</h1>
+      <p>
+        Drag to orbit, scroll to zoom. Use focus + time controls to watch real motion,
+        then trigger collisions, collapse, and supernova events.
+      </p>
+      <div id="status"></div>
+    </div>
+
+    <div id="controls-panel">
+      <div class="row">
+        <label for="focusSelect">Focus</label>
+        <select id="focusSelect"></select>
+      </div>
+      <div class="row">
+        <label for="modeSelect">Theme</label>
+        <select id="modeSelect">
+          <option value="day">Day mode</option>
+          <option value="night">Night mode</option>
+          <option value="enhanced">Enhanced exotic mode</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="massScale">Mass class morph</label>
+        <input id="massScale" type="range" min="0" max="3" step="0.01" value="0" />
+      </div>
+      <div class="row">
+        <label for="timeScale">Simulation speed</label>
+        <input id="timeScale" type="range" min="0" max="150" step="1" value="45" />
+      </div>
+      <div class="row">
+        <small>0=paused • 45=default • higher = faster orbital evolution</small>
+      </div>
+      <div class="row two">
+        <button id="spawnCollision">Simulate collision</button>
+        <button id="spawnSupernova">Trigger supernova</button>
+      </div>
+      <div class="row two">
+        <button id="spawnCollapse">Core collapse</button>
+        <button id="resetSystem">Reset</button>
+      </div>
+      <div class="row">
+        <label><input id="physicsToggle" type="checkbox" checked /> Run N-body dynamics</label>
+      </div>
+      <div class="row">
+        <label><input id="followToggle" type="checkbox" /> Auto-follow focus target</label>
+      </div>
+      <div class="row">
+        <label><input id="trailsToggle" type="checkbox" checked /> Show orbital trails</label>
+      </div>
+    </div>
+
+    <canvas id="scene"></canvas>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
